@@ -32,6 +32,9 @@ nama();
 
 // 1. getElementByid
 // 2. getElementsByTagName
+// 3. getElementByClassName
+// 4. querySelector
+// 5. querySelectorAll
 // const judul = document.getElementsByTagName("h1")
 // console.log(judul[0])
 
@@ -51,7 +54,7 @@ nama();
 //     }
 // });
 
-const judul = document.getElementById("judul");
+// const judul = document.getElementById("judul");
 
 judul.addEventListener('mouseover', function() {
     judul.style.color = "red";
@@ -73,3 +76,6 @@ btnSubmit.addEventListener('click', function() {
 // function sapaDia() {
 //     textSapaan.innerHTML += ` ${inputNama.value}`
 // }
+
+const judulPakeQuery = document.querySelector('.judul-kelas')
+console.log(judulPakeQuery)
