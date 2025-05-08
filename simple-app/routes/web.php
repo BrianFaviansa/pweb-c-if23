@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,4 @@ Route::get('/home', function (Request $request) {
 
 Route::get('/login',[AuthController::class, 'loginView'])->name('login');
 Route::post('/login',[AuthController::class, 'login'])->name('login.post');
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
