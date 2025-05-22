@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,12 @@ Route::get('/home', function (Request $request) {
 
 Route::get('/login',[AuthController::class, 'loginView'])->name('login');
 Route::post('/login',[AuthController::class, 'login'])->name('login.post');
+
+
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+Route::group(['prefix' => 'products'], function() {
+    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/', [ProductController::class, 'store'])->name('products.store');
+});
