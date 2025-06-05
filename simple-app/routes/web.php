@@ -18,6 +18,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+Route::get('/', function () {
+    return redirect()->route('home');
+});
+
 Route::get('/home', function (Request $request) {
     return view('welcome', [
         'mahasiswa' => [
@@ -29,13 +33,13 @@ Route::get('/home', function (Request $request) {
     ], ['name' => $request['name']]);
 })->name('home');
 
-Route::get('/login',[AuthController::class, 'loginView'])->name('login');
-Route::post('/login',[AuthController::class, 'login'])->name('login.post');
+Route::get('/login', [AuthController::class, 'loginView'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
 
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
-Route::group(['prefix' => 'products'], function() {
+Route::group(['prefix' => 'products'], function () {
     Route::get('/', [ProductController::class, 'index'])->name('products.index');
     Route::get('/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('/', [ProductController::class, 'store'])->name('products.store');
@@ -43,3 +47,6 @@ Route::group(['prefix' => 'products'], function() {
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 });
+
+Route::get('/exchange', [UserController::class, 'exchangeRate'])->name('exchange');
+Route::get('/async-js', [UserController::class, 'asyncJs'])->name('async.js');
