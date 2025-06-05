@@ -20,7 +20,7 @@
         <div>
             <label for="gambar">Gambar</label>
             <br>
-            <input type="text" name="gambar" id="gambar" required>
+            <textarea name="gambar" id="gambar" required></textarea>
         </div>
         <div>
             <label for="category_id">Kategori</label>

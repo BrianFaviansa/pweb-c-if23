@@ -21,7 +21,7 @@
         <div>
             <label for="gambar">Gambar</label>
             <br>
-            <input type="text" name="gambar" id="gambar" value="{{ old('gambar', $product->gambar) }}" required>
+            <textarea rows="10" name="gambar" id="gambar" required>{{ old('gambar', $product->gambar) }}</textarea>
         </div>
         <div>
             <label for="category_id">Kategori</label>
